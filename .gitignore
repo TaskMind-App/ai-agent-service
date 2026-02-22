@@ -1,0 +1,21 @@
+# Python virtual environments
+venv/
+.venv/
+env/
+
+# PyCharm settings
+.idea/
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Environment variables (Sensitive data)
+.env
+
+# Docker logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
