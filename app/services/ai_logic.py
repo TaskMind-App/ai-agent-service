@@ -7,12 +7,10 @@ def generate_task_summary(user_id: str):
     headers = {"Accept": "application/json", "X-User-Id": user_id}
     params = {"completed": "false"}
 
-    # קריאה ל-Task Service
     response = requests.get(f"{TASK_SERVICE_URL}/{user_id}", headers=headers, params=params)
-    response.raise_for_status()  # זריקת שגיאה אם הקריאה נכשלה
+    response.raise_for_status()
 
     tasks_data = response.json()
 
-    # הפעלת LangChain
     chain = summary_prompt | llm
     return chain.invoke({"tasks": tasks_data})

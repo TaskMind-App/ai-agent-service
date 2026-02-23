@@ -11,22 +11,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. משיכת הקוד
     - uses: actions/checkout@v3
 
-    # 2. התקנת פייתון (במקום Java)
     - name: Set up Python 3.10
       uses: actions/setup-python@v4
       with:
         python-version: '3.10'
 
-    # 3. התקנת התלויות
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    # 4. בדיקת תקינות ה-Dockerfile (אריזה)
     - name: Build Docker Image
       run: |
         docker build -t taskmind-ai-service .
