@@ -7,13 +7,14 @@ from contextlib import asynccontextmanager
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     await eureka_client.init_async(
-        eureka_server="http://discovery-service:8761/eureka",
+        eureka_server="http://discovery-service:8761/eureka/",
         app_name="ai-agent-service",
-        instance_port=8000
+        instance_port=8000,
+        instance_host="ai-service"
     )
     yield
     await eureka_client.stop_async()
-app = FastAPI()
+app = FastAPI(lifespan=lifespan)
 
 @app.get("/api/ai/summary")
 def get_summary(x_user_id: str = Header(None)):
