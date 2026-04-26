@@ -26,8 +26,6 @@ The AI Agent Service operates as a specialized consumer within the TaskMind dist
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
 | `POST` | `/api/ai/summary` | Generate a smart summary of specific tasks |
-| `GET` | `/api/ai/tips` | Fetch personalized productivity insights |
-| `POST` | `/api/ai/analyze` | Analyze task patterns for efficiency bottlenecks |
 
 ## 📦 Getting Started
 To run the AI Agent Service locally:
